@@ -62,7 +62,7 @@ function updateD3(){
             .on("start", dragstarted)
             .on("drag", dragged)
             .on("end", dragended));
-    
+
 
     node.append("title")
         .text(function(d) { return d.index; });
@@ -173,11 +173,11 @@ function parseJSON(text){
    components.forEach(function(element) {
        data.nodes.push(
            {
-               "id":element.id, 
+               "id":element.id,
                "entity":element.entity,
                "name":element.name
             });
-        
+
    }, this);
 
    connections.forEach(function(connection) {
@@ -193,20 +193,20 @@ function parseJSON(text){
         connection.sinks.forEach(function(sink) {
             targetindex = getIndexOfNode(components, sink);
             data.links.push({
-                "source":sourceindex, 
+                "source":sourceindex,
                 "target":targetindex,
                 "sourcepin":sourcepin,
                 "targetpin":targetpin
             });
         }, this);
    }, this);
-   
+
    console.log("Number of connections: " + data.links.length);
    console.log(data.links);
    console.log("Number of components: " + data.nodes.length);
    console.log(data.nodes);
    updateD3();
-   
+
 }
 
 
@@ -240,5 +240,5 @@ reader.onload = function (e) {
 
 </script>
 
-<svg width="960" height="600"></svg>
+<svg width="1280" height="800"></svg>
 <script src="https://d3js.org/d3.v4.min.js"></script>
